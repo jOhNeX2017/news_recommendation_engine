@@ -73,4 +73,5 @@ with ZipFile('finalized_model.zip', 'w') as zipObj2:
    # Add files to the zip
    zipObj2.write('finalized_model.sav')
 
+# remove extracted save model
 os.remove('finalized_model.sav')
