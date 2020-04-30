@@ -89,4 +89,5 @@ print(res[['headline','short_description']])
 os.remove('News_Category_Dataset_v2.json')
 #removed the converted CSV file 
 os.remove('data.csv')
+#removed the extracted fianlized_model
 os.remove('finalized_model.sav')
