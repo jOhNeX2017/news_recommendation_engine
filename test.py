@@ -4,6 +4,7 @@ from sklearn.cluster import KMeans
 from sklearn import metrics
 from sklearn.feature_extraction.text import TfidfVectorizer
 import os
+import pickle
 
 zip_filename = 'news-category-dataset.zip'
 
@@ -57,7 +58,7 @@ terms = vectorizer.get_feature_names()
 # prediction = model.predict(Y)
 # print(prediction)
 
-import pickle
+
 
 filename = 'finalized_model.sav'
 pickle.dump(model, open(filename, 'wb'))
