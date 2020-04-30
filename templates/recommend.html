@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <title>News Press</title>
+        <style>
+            .button {
+                background-color: black;
+                color:white;
+                border: none;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 15px;
+                border-radius: 10px;
+            }
+            .button:hover{
+                background-color: rgb(60, 48, 226);
+            }
+        </style>
+    </head>
+    <!--[if IE 6 ]><body class="ie6 old_ie"><![endif]-->
+    <!--[if IE 7 ]><body class="ie7 old_ie"><![endif]-->
+    <!--[if IE 8 ]><body class="ie8"><![endif]-->
+    <!--[if IE 9 ]><body class="ie9"><![endif]-->
+    <!--[if !IE]><!--><body><!--<![endif]-->
+		<header>
+			<h1><a href="index.html">News Press</a></h1>
+			<nav>
+				<ul>
+					<li><a href="#">&ensp;</a></li>
+					<li><a href="/">Home</a></li>
+					<li class="dropdown">
+						<a href="#">
+							Categories
+						</a>
+						<div class="dropdown-content">
+							{% for i in range(0,31) %}
+								<a href="/category/{{ category[i] }}">{{ category[i] }}</a>
+								<hr>
+							{% endfor %}
+						</div>
+					</li>
+					<li><a href="">About Us</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div id="container" align="center">
+            <div class="box">
+                <h1>{{ news[2] }}</h1>
+                <br>
+                <p align="left" class="news_description">{{ news[5] }}</p>
+                <br>
+                <p><small>Posted by- <strong>{{ news[3] }}</strong></small></p> 
+                <small>On: {{ news[6] }}</small>
+                <br>
+                <br>
+                <p><a href="{{ news[4] }}" class="button">Click to Catch up with Details </a></p>
+            </div>
+        </div>
+		<div id="secwrapper" align="center" style="margin-top: 1%;">
+            <h2><i><u>Recommended News</u></i></h2>
+            <br>
+			<section>
+				{% for i in range(0,data_length) %}				
+                {% if(i%3!=0) %}
+                    <article>
+                        <h1><a href="/recommend/{{ data[i][0] }}">{{ data[i][2] }}</a></h1>
+                        <p>{{ data[i][5] }}</p>
+                        <a href="{{ data[i][4] }}" class="readmore">Read more</a>
+                        <small>Posted by - {{ data[i][3] }}</small>
+                    </article>
+                    {% else %}
+                    <article class="rightcl"  >
+                        <h1><a href="/recommend/{{ data[i][0] }}">{{ data[i][2] }}</a></h1>
+                        <p>{{ data[i][5] }}</p>
+                        <a href="{{ data[i][4] }}" class="readmore">Read more</a>
+                        <small>Posted by - {{ data[i][3] }}</small>
+                    </article>
+                {% endif %}
+				
+						
+				{% endfor %}
+				
+							
+				<!--
+					<article id="photobox">
+						<h1>Photos Box</h1>
+						<img src="{{ url_for('static', filename='images/pbs1.jpg') }}" alt="" />
+						<img src="{{ url_for('static', filename='images/pbs2.jpg') }}" alt="" />
+						<img src="{{ url_for('static', filename='images/pbs3.jpg') }}" alt="" />
+						<img src="{{ url_for('static', filename='images/pbs4.jpg') }}" alt="" />
+						<img src="{{ url_for('static', filename='images/pbs5.jpg') }}" alt="" />
+						<img src="{{ url_for('static', filename='images/pbs6.jpg') }}" alt="" />
+						<img src="{{ url_for('static', filename='images/pbs7.jpg') }}" alt="" />
+					</article>
+				-->
+				
+				<!--
+				<article>
+					
+						<h1>Sponsors</h1>
+						<a href="#">
+							<p>Advertise here</p>
+						</a>
+						<a href="#">
+							<p>Advertise here</p>
+						</a>
+						<a href="#">
+							<p>Advertise here</p>
+						</a>
+						<a href="#">
+							<p>Advertise here</p></a>					
+					
+					<a href="#"><img src="{{ url_for('static', filename='images/5.jpg') }}" alt=""/></a>
+					<h1>Aenean Quis Dignissim Diam</h1>
+					<p>Vulputate ac sit aenean quis dignissim diam. Etiam venenatis congue velit, varius gravida mi volutpat ac. Sed ut pretium dolor. Etiam tempor felis ac eros dictum quis consectetur dolor tristique. Aliquam scelerisque, odio vel luctus commodo, nisl nisl vehicula metus, ut lobortis eros sem blandit est.</p>
+					<a href="#" class="readmore">Read more</a>
+				</article>
+				-->
+			</section>
+		</div>
+		<footer>
+			<p>News Recommendation System .</p>
+		</footer>
+	</body>
+</html>
+		
+		
+			
+    
+    
